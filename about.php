@@ -7,7 +7,8 @@ require_once("functions.php");
 
 <head>
     <?php
-    $page_title = 'About us - AzaleaPro';
+    $page_title='About us';
+    $curPage='about';
     require("structure/title.php");
     ?>
 </head>
