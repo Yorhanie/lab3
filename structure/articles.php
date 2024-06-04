@@ -16,7 +16,7 @@ $url = "article.php?id={$article['id']}";
             <?= $article['content']; ?>
         </div>
         <div class="blog-meta">
-            <?= $article['author']; ?>
+            <?= $article['author']; ?> | <a href="<?= $url; ?>"><?= $article['comments']; ?> Comment(s)</a>
         </div>
         <div class="divider"></div>
     </div>

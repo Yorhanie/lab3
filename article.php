@@ -42,8 +42,10 @@ $curPage = "articlePage";
         </header>
         <p class="blog-post-description">
             <?= $article['content']; ?>
-        </ul>
         </p>
+        <div>
+            <a href="<?= $url; ?>"><?= $article['comments']; ?> Comment(s)</a>
+        </div>
     </article>
 </main>
 

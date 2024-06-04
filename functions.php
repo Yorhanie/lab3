@@ -1,39 +1,53 @@
 <?php
-function getArticles(): array {
-    return [
-        [
-            'id' => 1,
-            'title' => 'Article #1',
-            'content' => 'He is everywhere. HELP. He is in cars. He is under the cones. In the manholes. HE IS IN THE TRASHCANS. He is zombie. He is behind me. He-',
-            'author' => 'Kiryu',
-            'created' => 'December 5, 2005',
-            'image' => 'MAJIMA.jpg'
-        ],
-        [
-            'id' => 2,
-            'title' => 'Article #2',
-            'content' => 'Aalto is a multifaceted character whose enigmatic presence, strategic mind, and unique abilities make him a compelling figure in "Wuthering Waves," contributing to the game\'s depth and engaging narrative.',
-            'author' => 'Encore',
-            'created' => 'April 17, 2004',
-            'image' => 'Aalto.jpg'
-        ],
-        [
-            'id' => 3,
-            'title' => 'Article #3',
-            'content' => 'Huening Kai’s unique background, combined with his talent and charisma, has made him a standout member of TXT. His contributions to the group’s music and his ability to connect with fans have solidified his place in the K-pop industry.',
-            'author' => 'Jay',
-            'created' => 'April 17, 2004',
-            'image' => 'Hueningkai.jpg'
-        ],
-    ];
-}
 
-function getArticleData(int $articleId):? array {
-    $articles = getArticles();
-    foreach ($articles as $article) {
-        if ($article['id'] === $articleId) {
-            return $article;
+// Конекшн до бази
+function getDbConnection():PDO {
+    static $connection;
+
+    if(null===$connection) {
+        try {
+            $connection = new PDO('mysql:host=localhost;dbname=weblabs',
+                'root', '159753');
+            return $connection;
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo "Error!: {$e->getMessage()}";
+            die;
         }
     }
-    return null;
+
+    return $connection;
+}
+
+
+// Функція для отримання списку статей
+function getArticles(): array {
+    $db = getDbConnection();
+
+    // // готуємо запит до виконання
+    // $query = $db->prepare("SELECT * FROM articles");
+    // // запускаємо підготовлений запит
+    // $query->execute();
+    // // вибираємо наступний рядок з набору результатів.
+    // $articles = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $query = $db->query('SELECT * FROM articles');
+    $articles = $query->fetchAll(PDO::FETCH_ASSOC);
+    return  $articles;
+}
+
+// Функція для отримання списку статей
+function getArticleData(int $articleId):? array {
+    $db = getDbConnection();
+
+    // // готуємо запит до виконання
+    // $query = $db->prepare("SELECT * FROM articles WHERE id = :articleId");
+    // // запускаємо підготовлений запит
+    // $query->execute([':articleId' => $articleId]);
+    // // вибираємо наступний рядок з набору результатів.
+    // $article = $query->fetch(PDO::FETCH_ASSOC);
+
+    $query = $db->query("SELECT * FROM articles WHERE id = $articleId");
+    $article = $query->fetch(PDO::FETCH_ASSOC);
+    return $article ? $article : null;
 }
