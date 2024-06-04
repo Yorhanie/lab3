@@ -44,7 +44,7 @@ $curPage = "articlePage";
             <?= $article['content']; ?>
         </p>
         <div>
-            <a href="<?= $url; ?>"><?= $article['comments']; ?> Comment(s)</a>
+            <?= $article['comments']; ?> Comment(s)
         </div>
     </article>
 </main>
