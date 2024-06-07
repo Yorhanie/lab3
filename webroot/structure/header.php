@@ -5,8 +5,8 @@
 ?>
 
 <header class="site-header">
-    <a class="site-logo" href="/index.php">
-        <img src="/image/azalea-logo.png" alt="site_logo">
+    <a class="site-logo" href="index.php">
+        <img src="/webroot/image/azalea-logo.png" alt="site_logo">
     </a>
 
     <nav class="navbar">

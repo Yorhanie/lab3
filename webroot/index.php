@@ -18,6 +18,8 @@ $articles = getArticles();
 
 <main class="container">
     <?php foreach ($articles as $article) { ?>
+        <?php $numberOfComments = $article['numbersComments']; ?>
+        <?php $averageRate = $article['avgRate']; ?>
         <?php require("structure/articles.php") ?>
     <?php }?>
 </main>

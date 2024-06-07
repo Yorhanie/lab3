@@ -1,8 +1,12 @@
 <?php
-/***
- * @var string $article
- */
 $url = "article.php?id={$article['id']}";
+if ($averageRate === null) {
+    $averageRate = 0;
+}
+else {
+    $averageRate = number_format($averageRate, 1);
+}
+$article['created'] = date('F d, Y');
 ?>
 
 <article class="blog-card">
@@ -16,7 +20,9 @@ $url = "article.php?id={$article['id']}";
             <?= $article['content']; ?>
         </div>
         <div class="blog-meta">
-            <?= $article['author']; ?> | <a href="<?= $url; ?>"><?= $article['comments']; ?> Comment(s)</a>
+            <?= $article['author']; ?> |
+            <span><?= $numberOfComments ?> Comment(s)</span>
+            <span>Rate: <?= $averageRate ?>✭</span>
         </div>
         <div class="divider"></div>
     </div>

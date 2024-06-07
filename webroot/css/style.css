@@ -2,7 +2,7 @@
 @import url(https://db.onlinewebfonts.com/c/e662339992c4abf5b43f537391bd3169?family=Candara);
 
 :root {
-    --primary-color: #a88c00;
+    --primary-color: #ea690d;
     --text-color: #4f4f51;
     --meta-text-color: #989797;
     --font-family: 'High Tower Text', sans-serif;
@@ -17,6 +17,7 @@ body {
     font-family: var(--font-family), sans-serif;
     color: var(--text-color);
     line-height: 1.6;
+    background-color: #fff1e0;
 }
 
 a {
@@ -50,6 +51,7 @@ h2 {
 
 h3 {
     font-size: 20px;
+    margin: 30px 25px;
 }
 
 .container {
@@ -105,10 +107,6 @@ h3 {
     color: var(--meta-text-color);
     padding: 10px 25px;
     font-size: 22px;
-}
-
-.comment {
-    margin-left: 30px;
 }
 
 .divider {
@@ -167,6 +165,7 @@ time {
     font-family: var(--font-family), sans-serif;
     color: var(--text-color);
     font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .site-footer {
@@ -186,6 +185,97 @@ time {
     font-family: var(--font-family), sans-serif;
     color: var(--text-color);
     font-size: 24px;
+}
+
+.article-meta {
+    font-size: 24px;
+    border-top: 1px solid var(--meta-text-color);
+    border-bottom: 1px solid var(--meta-text-color);
+}
+
+.form-container {
+    display: block;
+    margin-bottom: 48px;
+}
+
+.form-container .form-input-group {
+    margin-bottom: 24px;
+}
+
+.form-container .form-input-group .input-error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form-container .form-input-field {
+    width: 50%;
+    padding: 12px;
+    border: 2px solid #333;
+    outline: none;
+    font-family: var(--font-family), sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-container .form-input-field:focus {
+    border-color: var(--primary-color);
+}
+
+.form-container .form-input-option {
+    background-color: #ffffff;
+}
+
+button {
+    margin-left: 23%;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    font-family: var(--font-family), sans-serif;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #bc4500;
+}
+
+button:active {
+    background-color: #bc4500;
+}
+
+.article-comments .comments .comment {
+    margin-bottom: 32px;
+    background-color: white;
+    padding: 16px;
+}
+
+.article-comments .comments .comment .comment-author,
+.article-comments .comments .comment .comment-date,
+.article-comments .comments .comment .comment-rate {
+    font-size: 18px;
+    font-family: var(--font-family), sans-serif;
+    min-height: 20px;
+}
+
+.article-comments .comments .comment .comment-content {
+    text-align: justify;
+    font-family: var(--font-family), sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.comment {
+    font-size: 24px;
+    border: 2px solid var(--primary-color);
+    background: white;
+    max-width: 40%;
+    margin-left: 75px;
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 640px) {
